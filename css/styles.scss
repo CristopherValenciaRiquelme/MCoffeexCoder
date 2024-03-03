@@ -1,0 +1,338 @@
+/* CSS Reset */
+
+html, body, div,main, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+
+  font-weight: bold;
+  font-style: italic;
+
+  font-size: 1rem; /* Tamaño de la letra */
+
+
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/* VARIABLES */
+
+//Colores
+$color-marron-oscuro: #8B4513;
+$color-marron-claro: #ae6847;
+$color-marron-mas-claro: #c2906c;
+
+//Logo
+$color-marron-claro-logo: #ab754e;
+
+//footer
+$color-gris-claro: #333;
+$color-crema: #FFF8E7;
+$color-blanco: #fff;
+
+
+/* Estilos Globales */
+#body {
+  background-color: $color-marron-claro-logo;
+
+  text-align: center;
+  font-family: sans-serif;
+  height: auto;
+  width: 100%;
+}
+
+
+/* Estilos de las áreas de la página */
+#header {
+  grid-area: header;
+  background-color: $color-marron-oscuro;
+
+
+  height: auto;
+  width: 100%;
+
+  flex-direction: column;
+  white-space: nowrap;
+  }
+
+
+
+
+#nav {
+  background-color: $color-marron-claro;
+  grid-area: nav;
+  height: auto;
+  display: block;
+
+}
+
+/* BarraNav */
+
+.navbar-toggler{
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+#navbarNav li {
+  list-style: none;
+}
+
+.navbar.show {
+  display: block; /* Mostrar cuando la clase show está presente */
+}
+
+
+@media screen and (min-width: 720px) {
+  /* Estilos para pantallas con un ancho de 720px o más */
+
+
+  .navbar {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo difuminado */
+    backdrop-filter: blur(10px); /* Aplica un filtro de desenfoque */
+    padding: 20px; /* Ajusta el relleno según sea necesario */
+    z-index: 4;
+  }
+
+  #nav {
+
+    /* Aplicar efecto de fondo difuminado */
+    backdrop-filter: blur(10px); /* Ajusta el valor de desenfoque según sea necesario */
+    -webkit-backdrop-filter: blur(1px); /* Prefijo para navegadores webkit (como Chrome y Safari) */
+    background-color: rgba($color-marron-claro,5); /* Fallback para navegadores que no admiten backdrop-filter */
+  }
+
+ #main  {
+  min-height: calc(35vh); /* Ajusta la altura mínima del main para dejar espacio para el logo */
+ }
+
+
+
+}
+
+#main {
+  background-color: $color-marron-mas-claro;
+  grid-area: main;
+
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+  white-space: nowrap;
+
+  height: auto;
+  width: 100%;
+
+
+
+  padding-top: 20px; /* Ajusta el relleno superior según sea necesario */
+}
+
+
+/* Logo WhatsaPP */
+.logoWhatsappImg {
+
+  width: auto;
+  max-width: 17vw;
+  height: auto;
+
+  position: fixed;
+  bottom: 50%;
+  right: 8%;
+
+  z-index: 4;
+}
+
+
+
+
+
+#footer {
+  background-color: $color-gris-claro;
+  color: $color-crema;
+
+  grid-area: footer;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  
+
+  height: auto;
+
+}
+
+
+header, #nav, footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+  white-space: nowrap;
+
+  height: auto;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: 1.5rem; /* Tamaño de fuente para todos los elementos */
+  max-width: 100%;
+  max-height: 100%;
+
+  font-size: 1.0rem;
+}
+
+/* VERSION MÓVIL */
+@media (min-width: 0px) and (max-width: 720px) {
+  .gridPadre {
+    display: grid;
+    grid-template-areas:
+    "header"
+      "main"
+      "nav"
+      "carousel"
+      "footer";
+  }
+
+}
+
+
+/*También podemos configurar estilos dependiendo la orientacion de la pantalla */
+
+@media screen and (orientation: landscape) {
+  /*Estilos en CSS para pantallas en modo horizontal */
+  h1,h2 {
+      text-transform: uppercase;
+  }
+}
+
+
+
+
+/* Efecto de pulso */
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.05);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.pulse {
+  /* Aplica la animación de pulso */
+  animation: pulse 1s infinite;
+  transition: transform 0.3s;
+}
+
+
+.logoMonsterCoffe{
+
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  width: auto;
+  height: auto;
+
+  padding: 1vh;
+  margin: 1vh auto;
+  border-radius: 10px;
+
+  z-index: 1; /* Asegura que el logo esté encima del contenido pero debajo de la barra de navegación */
+}
+
+
+
+/* CAROUSEL */
+
+// .carousel-item{
+
+  .carousel-item img {
+    max-width: 30vw; /* Define el ancho máximo de la imagen */
+    height: auto; /* Mantén la proporción de aspecto */
+    margin: auto; /* Centra la imagen horizontalmente */
+  }
+
+
+.TituloSeccion{
+  background-color:$color-marron-mas-claro ;
+  color: $color-marron-oscuro;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 17px;
+
+}
+
+.TituloCarousel h2{
+  font-size: 1rem;
+}
+
+
+
+/*  Formulario */
+
+.formulario {
+  max-width: 600px; /* Establece un ancho máximo para el formulario */
+  margin: auto; /* Centra el formulario horizontalmente */
+}
+
+/* CSSBoton */
+.btn-custom {
+  background-color: #8B4513; 
+  color: #fff; 
+}
+
+.btn-custom:hover {
+  background-color: #A0522D; 
+}
+
+/* CheckBOX */
+.mbc-container {
+  display: flex;
+  align-items: center; 
+}
+
+.mbc-container .form-check-input {
+  margin-right: 10px; 
+}
